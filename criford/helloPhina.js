@@ -1,8 +1,3 @@
-/*
- * Runstant
- * 思いたったらすぐ開発. プログラミングに革命を...
- */
-
 
 // グローバルに展開
 phina.globalize();
@@ -85,7 +80,7 @@ phina.define("MainScene", {
     // デフォルトでいくつか生成
     (2000).times(function() {
 
-      this.addCircle(0, 0, 1.4);      
+      this.addCircle(0, 0, 1.4);
       
     }, this);
   },
