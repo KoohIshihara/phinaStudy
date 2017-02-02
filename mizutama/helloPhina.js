@@ -44,21 +44,25 @@ var createCircle = function(){
   circles[i].radius = Math.random()*20+10;
   circles[i].stroke = '#AAF';
   circles[i].strokeWidth = 0.4;
+
   addTween(circles[i]);
 }
 
 var createShape = function(){
+  createCircle();
+  createCircle();
   createCircle();
 }
 
 var scene;
 phina.define('MainScene', {
   superClass: 'CanvasScene',
-  init: function init(options) {
-    this.superInit(options);
+  init: function init() {
+    this.superInit();
     scene = this;
     // 背景色
     this.backgroundColor = '#FFF';
+
     setInterval(createShape , 400);
   },// init
 
@@ -70,23 +74,12 @@ phina.define('MainScene', {
 
 var app;
 phina.main(function() {
-  var winW = window.innerWidth;
-  var winH = window.innerHeight;
   app = GameApp({
     startLabel: 'main',
-    width: winW,
-    height: winH,
   });
+  /*winW = window.innerWidth;
+  var winH = window.innerHeight;
+  app.canvas.canvas.width = winW;
+  app.canvas.canvas.height = winH;*/
   app.run();
 });
-
-window.onresize = function() {
-  var winW = window.innerWidth;
-  var winH = window.innerHeight;
-  scene.width = winW;
-  scene.height = winH;
-  app.canvas.width = winW;
-  app.canvas.height = winH;
-  app.canvas.canvas.width = winW;
-  app.canvas.canvas.height = winH;
-}
