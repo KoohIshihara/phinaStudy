@@ -1,25 +1,6 @@
 phina.globalize();
 
 var addTween = function(shape){
-  /*
-  shape.tweener
-  .to({
-    rotation:360,
-    scaleX:2.0,
-    scaleY:2.0,
-  },1000,"swing")
-  .to({
-    rotation:720,
-  },1000,"swing")
-  .to({
-    rotation:360,
-    scaleX:0.0,
-    scaleY:0.0,
-  },1000,"swing")
-  .call(function(){
-    shape.remove();
-  });
-  */
 
   shape.tweener
   .to({

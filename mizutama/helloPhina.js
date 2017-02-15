@@ -1,85 +1,79 @@
 phina.globalize();
 
-var addTween = function(shape){
-  /*
-  shape.tweener
-  .to({
-    rotation:360,
-    scaleX:2.0,
-    scaleY:2.0,
-  },1000,"swing")
-  .to({
-    rotation:720,
-  },1000,"swing")
-  .to({
-    rotation:360,
-    scaleX:0.0,
-    scaleY:0.0,
-  },1000,"swing")
-  .call(function(){
-    shape.remove();
-  });
-  */
-
-  shape.tweener
-  .to({
-    alpha:0,
-    scaleX:8.0,
-    scaleY:8.0,
-  },2000,"swing")
-  .call(function(){
-    shape.remove();
-  });
-}
-
-var circles = []; // 動的配列的に扱うよ
-var createCircle = function(){
-  var i = circles.length;
-  circles[i] = CircleShape().addChildTo(scene);
-  var randomPosX = Math.random()*scene.gridX.width;
-  var randomPosY = Math.random()*scene.gridY.width;
-  circles[i].x = randomPosX;
-  circles[i].y = randomPosY;
-  circles[i].fill = false;
-  circles[i].radius = Math.random()*20+10;
-  circles[i].stroke = '#AAF';
-  circles[i].strokeWidth = 0.4;
-
-  addTween(circles[i]);
-}
-
-var createShape = function(){
-  createCircle();
-  createCircle();
-  createCircle();
-}
-
-var scene;
 phina.define('MainScene', {
-  superClass: 'CanvasScene',
-  init: function init() {
-    this.superInit();
-    scene = this;
+  superClass: 'DisplayScene',
+  init: function init(options) {
+    this.superInit(options);
     // 背景色
     this.backgroundColor = '#FFF';
+  },
 
-    setInterval(createShape , 400);
-  },// init
-
-  update: function() {
-    //app.canvas.canvas.width += 10;
-    //console.log(1);
+  update: function(app) {
+    if (app.frame % 4 === 0) {
+      this.createShape();
+    }
   },//update
+  
+  createShape: function() {
+    this.createCircle();
+  },
+  
+  createCircle: function() {
+    var x = Math.randint(0, this.gridX.width);
+    var y = Math.randint(0, this.gridY.width);
+    var c = CircleShape({
+      x: x,
+      y: y,
+      fill: false,
+      radius: Math.randint(80, 120),
+      stroke: 'hsl({0}, 100%, 50%)'.format(Math.randint(0, 360)),
+      strokeWidth: 8,
+      scaleX: 0.1,
+      scaleY: 0.1,
+    }).addChildTo(this);
+    this.addTween(c);
+  },
+  
+  addTween: function(shape) {
+    shape.tweener
+    .to({
+      alpha:0,
+      scaleX:1.0,
+      scaleY:1.0,
+    },2000,"swing")
+    .call(function(){
+      shape.remove();
+    });
+  },
 });
 
-var app;
 phina.main(function() {
-  app = GameApp({
-    startLabel: 'main',
-  });
-  /*winW = window.innerWidth;
+  var winW = window.innerWidth;
   var winH = window.innerHeight;
-  app.canvas.canvas.width = winW;
-  app.canvas.canvas.height = winH;*/
+  var app = GameApp({
+    startLabel: 'main',
+    width: winW,
+    height: winH,
+    fit: false,
+  });
   app.run();
+  
+  window.onresize = function() {
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var scene = app.currentScene;
+    scene.width = winW;
+    scene.height = winH;
+    scene.canvas.width = winW;
+    scene.canvas.height = winH;
+    scene.gridX.width = winW;
+    scene.gridY.width = winH;
+    app.width = winW;
+    app.height = winH;
+    app.canvas.width = winW;
+    app.canvas.height = winH;
+    app.canvas.canvas.width = winW;
+    app.canvas.canvas.height = winH;
+  }
 });
+
