@@ -29,12 +29,8 @@ phina.define('Circle', {
   },
 
   update: function() {
-
     this.x += this.vx;
     this.y += this.vy;
-
-
-
   },
 });
 
@@ -60,7 +56,7 @@ phina.define("MainScene", {
       var y = Math.randint(0, this.gridY.width);
 
 
-      this.addCircle(x, y, 10, 1.0, 1.0);      
+      this.addCircle(x, y, 10, 1.0, 1.0);
       
     }, this);
   },
