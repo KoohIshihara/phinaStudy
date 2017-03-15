@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 192 192" enable-background="new 0 0 192 192" xml:space="preserve">
+<g id="レイヤー_1" display="none">
+	<g display="inline">
+		<defs>
+			<rect id="SVGID_1_" width="192" height="192"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<path clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" d="M0,192L192,0L0,192
+			z"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" x1="0" y1="0" x2="192" y2="192"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-linecap="square" stroke-miterlimit="10" x1="0" y1="68" x2="192" y2="68"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-linecap="square" stroke-miterlimit="10" x1="0" y1="124" x2="192" y2="124"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-linecap="square" stroke-miterlimit="10" x1="0" y1="96" x2="192" y2="96"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" x1="124" y1="192" x2="124" y2="0"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" x1="68" y1="192" x2="68" y2="0"/>
+		
+			<line clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" x1="96" y1="192" x2="96" y2="0"/>
+		
+			<circle clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" cx="96" cy="96" r="40"/>
+		<path clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" d="M96,184
+			c-48.6,0-88-39.4-88-88S47.4,8,96,8s88,39.4,88,88S144.6,184,96,184"/>
+		<path clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" d="M160,172H32
+			c-6.6,0-12-5.4-12-12V32c0-6.6,5.4-12,12-12h128c6.6,0,12,5.4,12,12v128C172,166.6,166.6,172,160,172"/>
+		<path clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" d="M148,184H44
+			c-6.6,0-12-5.4-12-12V20c0-6.6,5.4-12,12-12h104c6.6,0,12,5.4,12,12v152C160,178.6,154.6,184,148,184"/>
+		<path clip-path="url(#SVGID_2_)" fill="none" stroke="#979797" stroke-width="0.75" stroke-miterlimit="10" d="M172,160H20
+			c-6.6,0-12-5.4-12-12V44c0-6.6,5.4-12,12-12h152c6.6,0,12,5.4,12,12v104C184,154.6,178.6,160,172,160"/>
+	</g>
+</g>
+<g id="レイヤー_2">
+	<polygon fill="#4A4A4A" points="143.7,90.8 143.7,80.1 143.8,76.1 143.7,76.1 143.7,76 96,95.6 61.4,81.5 48.3,76 48.3,76.1 
+		48.2,76 48.2,90.8 96,110.4 	"/>
+	<path fill="#4A4A4A" d="M43.4,159.9h105.1c10.8,0,19.6-8.8,19.6-19.6v-88c0-10.8-8.8-19.7-19.6-19.7H43.4
+		c-10.8,0-19.6,8.8-19.6,19.7v88C23.8,151.1,32.6,159.9,43.4,159.9z M43.6,52.3l104.9-0.1l0.1,87.6v0.3l-105,0.1h0V52.3z"/>
+</g>
+</svg>

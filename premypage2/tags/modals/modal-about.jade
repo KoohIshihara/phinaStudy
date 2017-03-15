@@ -1,0 +1,70 @@
+modal-about.modal
+  atom-icon-close
+  div.content
+    atom-modal-h2(h2_str = "{'About Kooh'}")
+    p 慶応大学に在学してます。アート・デザイン・プログラミングなどの分野で活動しています。テクノロジーを駆使した新しい表現としてのアート、エンジニアリングを考慮したシームレスな設計としてのデザインとかその辺ですね。
+    p まあ、こういう形式的な話はどうでもいいんですよ。まだまだ未熟なものばかりですが、野心的なものから実験的なものも含めて作品があるのでよかったら見てやってください。作風をみて何か気が合いそうだと感じたらご連絡お願いします。何か一緒に創りましょう。楽しみにしています。
+    atom-modal-h2(h2_str = "{'This year\s resolution'}")
+    span.resolution 「おきにいかない」
+    p 既視感という怪物に襲われています。色々ないものを見て、それに近いものをつくればいいものはできるんです。例えばグラフィックなんかは白黒スタイリッシュなデザインのものをつくればたいていかっこよくなるんですよ。
+    p でもそれを繰り返してるだけじゃダサいじゃないですか。没個性もいいとこです。問題解決的なデザインならそれでもいいんだと思うんですけどね。問題提起的なものをつくるならそれじゃいけないとおもうんです。
+    p もちろん、そういうデザインが求められてるなら普通につくります。それも間違いなく大事なので。ただ、自分のアート作品は「おきにいく」ことはしたくないんです。
+    atom-modal-h2(h2_str = "{'Skill'}")
+    span.skills Openframeworks / Processing / C++ / HTML5 / CSS3 / Javascript / Riot.js / Processing.js / Sketche / Figma / Illustrator / Photoshop
+    atom-modal-h2(h2_str = "{'Contact'}")
+    div.sns
+      a(href='https://www.facebook.com/kou.ishihara.37' target='_brank')
+        img(src='./img/icon/icon-fb.svg')
+      a(href='https://twitter.com/' target='_brank')
+        img(src='./img/icon/icon-twitter.svg')
+      a(href='mailto:as.it.were.kou@gmail.com')
+        img(src='./img/icon/icon-mail.svg')
+
+  style(scoped, type='less').
+    :scope {
+      display: none;
+      position: fixed;
+      width: 95%;
+      height: 95%;
+      top: 2.5%;
+      max-width: 800px;
+      background-color: rgba(250,250,250,0.8);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      .content {
+        margin: 0 auto;
+        max-width: 700px;
+        width: 95%;
+        .resolution {
+          color: #4A4A4A;
+          font-size: 16px;
+          display: block;
+          text-align: center;
+          padding-top: 32px;
+          padding-bottom: 32px;
+        }
+        .skills {
+          margin-top: 40px;
+          width: 100%;
+          color: #4A4A4A;
+          font-size: 14px;
+          display: block;
+          text-align: center;
+          word-wrap: break-word;
+        }
+        .sns {
+          margin-top: 40px;
+          margin-bottom: 80px;
+          display: flex;
+          justify-content: space-around;
+          a {
+            display: block;
+            width: 44px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  script.

@@ -1,0 +1,43 @@
+atom-icon-close(onclick='{modalClose}')
+  img(src='./img/icon/icon-close.svg')
+
+
+  style(scoped, type='less').
+    :scope {
+      position: fixed;
+      display: block;
+      width: 44px;
+      height: 44px;
+      background-color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      img {
+      
+      }
+    }
+
+  script.
+    console.log(opts.test);
+    this.modalClose = function(){
+      var modals = document.getElementsByClassName('modal');
+      for(var i=0; i<modals.length; i++){
+        var modal = $(modals[i]);
+        if(modal.hasClass('active-modal')){
+
+          modal.toggleClass('active-modal');
+          modal.fadeToggle("slow", "linear");
+          var tagName = modal.prop('tagName');
+          switch(tagName){
+            case "MODAL-ABOUT":
+              GLOBAL.aboutReset();
+            break;
+            case "MODAL-ART":
+              GLOBAL.artReset();
+            break;
+          }
+          
+          // ここでcanvasにフォーカスさせないとあかんな。
+        }
+      }
+    }
