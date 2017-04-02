@@ -3,8 +3,13 @@ phina.globalize();
 var SCREEN_WIDTH;
 var SCREEN_HEIGHT;
 var TRIANGLE_POS ={top: 0, left: 0, right: 0};
+var SOUND_ON;
 
 var ASEETS = {
+  image: {
+    'soundOn': './assets/icon-sound-on.svg',
+    'soundOff': './assets/icon-sound-off.svg',
+  },
   font: {
     'futura': './assets/FuturaBook.ttf',
   },
@@ -167,17 +172,21 @@ phina.define('MainScene', {
     this.label.center.attach(this.tweneers.centerInOut);
     //-----------------------------------------------------
     this.isSeparation = true;
-    
+    //-----------------------------------------------------
+    this.mainSceneFrame = 0;// このシーンがはじまってからのフレーム数
   },
 
   update: function(app) {
-    if (app.frame == 440) {
+
+    if(this.mainSceneFrame < 701) this.mainSceneFrame++;
+
+    if (this.mainSceneFrame == 420) {
       var children = this.children;
       for(var i=0; i<children.length; i++){
         children[i].status = 'separation';
       }
     }
-    if (app.frame == 700) { // ３つのラベルを生成・フェードイン
+    if (this.mainSceneFrame == 630) { // ３つのラベルを生成・フェードイン
 
       this.setTriangleLabels(this); // 3つのラベルを生成する。
 
@@ -187,6 +196,23 @@ phina.define('MainScene', {
 
       this.label.center.attach(this.tweneers.fadeIn);
     } // if (app.frame = 700)
+
+    // パーティクル移動中はラベルのインタラクティブを無効に
+    /*
+    if (app.frame % 10 == 0){
+      if(this.isSeparation != true){
+        for( key in this.label){
+          this.label[key].setInteractive(false);
+          console.log(this.label[key].interactive);
+        }
+      }else{
+        for( key in this.label){
+          this.label[key].setInteractive(true);
+        }
+      }
+    }
+    */
+
   },// update
 
   initTweeners: function(self){
@@ -198,7 +224,7 @@ phina.define('MainScene', {
         .wait(500)
         .call(function(){
           // BGMスタート
-          SoundManager.playMusic('bgm',600,true);
+          if(SOUND_ON) GLOBAL.playBgm();//SoundManager.playMusic('bgm',600,true);
           // パーティクルを生成するよ。あとで関数化する。
           (60).times(function() {
             //ここの値はJSONから引っ張ってくる--
@@ -245,8 +271,9 @@ phina.define('MainScene', {
   },
 
   setCircleStatus: function(color_str){
+    var self = this;
     var children = this.children;
-    if(this.isSeparation){
+    if(this.isSeparation){ // 中心に集める。
       for(var i=0; i<children.length; i++){
         if(color_str=='all' || color_str==children[i].fill){
           children[i].status = 'gathering';
@@ -255,15 +282,23 @@ phina.define('MainScene', {
           children[i].attach(fadeOut);
         }
       }
-    }else{
+      for( key in this.label){
+        this.label[key].setInteractive(false);
+      }
+    }else{ // 三角に散らす。
       for(var i=0; i<children.length; i++){
         if(color_str=='all' || color_str==children[i].fill){
           children[i].status = 'separation';
-        }else if(children[i].fill!='#000000'){
+        }else if(children[i].fill!='#000000'){ // 文字列以外のオブジェクトの時
           var fadeIn = Tweener().to({  alpha:0.4 },2000,"swing");
           children[i].attach(fadeIn);
         }
       }
+      setTimeout(function(){
+        for( key in self.label){
+          self.label[key].setInteractive(true);
+        }
+      }, 3600);
     }
     this.isSeparation = !(this.isSeparation);
   },
@@ -273,12 +308,13 @@ phina.define('MainScene', {
     this.label.center.onpointstart = function(e) {
       self.labelToggle('Center'); // ラベルのフェードアウト
       self.setCircleStatus('all'); // 玉の移動
-      GLOBAL.aboutModal(); // モーダル出現
+      GLOBAL.openModal('modal-about'); // モーダル出現
     }
     GLOBAL.aboutReset = function(){
       self.labelToggle('Center'); // ラベルのフェードアウト
       self.setCircleStatus('all'); // 玉の移動
     }
+
 
     var art = Label({
       text: "Art",
@@ -286,14 +322,14 @@ phina.define('MainScene', {
       y: TRIANGLE_POS.top.y,
       fontSize: 24,
       fill: '#000000',
-      fontFamily: 'futura',
+      /*fontFamily: 'futura',*/
     }).addChildTo(this);
     art.alpha = 0.0;
     art.setInteractive(true);
     art.onpointstart = function(e) {
       self.labelToggle('Art');
       self.setCircleStatus('#F44');
-      GLOBAL.artModal();
+      GLOBAL.openModal('modal-art');
     };
     GLOBAL.artReset = function(){
       self.labelToggle('Art');
@@ -301,38 +337,48 @@ phina.define('MainScene', {
     }
     this.label.art = art;
 
+
     var branding = Label({
       text: "Branding",
       x: TRIANGLE_POS.left.x,
       y: TRIANGLE_POS.left.y,
       fontSize: 24,
       fill: '#000000',
-      fontFamily: 'futura',
+      /*fontFamily: 'futura',*/
     }).addChildTo(this);
     branding.alpha = 0.0;
     branding.setInteractive(true);
     branding.onpointstart = function(e) {
       self.labelToggle('Branding');
       self.setCircleStatus('#4F4');
-      GLOBAL.brandingModal();
+      GLOBAL.openModal('modal-branding');
     };
+    GLOBAL.brandingReset = function(){
+      self.labelToggle('Branding');
+      self.setCircleStatus('#4F4');
+    }
     this.label.branding = branding;
 
-    uiux = Label({
+
+    var uiux = Label({
       text: "UI・UX",
       x: TRIANGLE_POS.right.x,
       y: TRIANGLE_POS.right.y,
       fontSize: 24,
       fill: '#000000',
-      fontFamily: 'futura',
+      /*fontFamily: 'futura',*/
     }).addChildTo(this);
     uiux.alpha = 0.0;
     uiux.setInteractive(true);
     uiux.onpointstart = function(e) {
       self.labelToggle('UI・UX');
       self.setCircleStatus('#44F');
-      GLOBAL.uiuxModal();
+      GLOBAL.openModal('modal-uiux');
     };
+    GLOBAL.uiuxReset = function(){
+      self.labelToggle('UI・UX');
+      self.setCircleStatus('#44F');
+    }
     this.label.uiux = uiux;
   }, // setTriangleLabels
 
@@ -342,22 +388,24 @@ phina.define('MainScene', {
     if(touchedLabel_str=='Center'){ // centerが押された場合
       for(key in labels){
         if(key!='center'){
-          this.initTweeners();
           if(labels[key].alpha==0.0){
-            labels[key].attach(this.tweneers.fadeIn);
+            var fadeIn = Tweener().wait(2800).to({  alpha:1.0 },2000,"swing");
+            labels[key].attach(fadeIn);
           }else{
-            labels[key].attach(this.tweneers.fadeOut);
+            var fadeOut = Tweener().wait(2800).to({  alpha:0.0 },2000,"swing");
+            labels[key].attach(fadeOut);
           }
         }
       }
     }else{ // center以外が押された場合
       for(key in labels){
-        this.initTweeners();
         if(key!='center'){ // center以外はfadeIn or Out
           if(labels[key].alpha==0.0){
-            labels[key].attach(this.tweneers.fadeIn);
+            var fadeIn = Tweener().wait(2800).to({  alpha:1.0 },2000,"swing");
+            labels[key].attach(fadeIn);
           }else{
-            labels[key].attach(this.tweneers.fadeOut);
+            var fadeOut = Tweener().wait(2800).to({  alpha:0.0 },2000,"swing");
+            labels[key].attach(fadeOut);
           }
         }else{ // centerのアニメーション
           if(labels['art'].alpha==0.0){ // gatherしてる時
@@ -371,7 +419,7 @@ phina.define('MainScene', {
              alpha:1.0,
             },1000,"swing");
             labels[key].attach(tween);
-          }else{
+          }else{ // separateしてる時
             var tween = Tweener().to({
              alpha:0.0,
             },1000,"swing")
@@ -392,19 +440,71 @@ phina.define('MainScene', {
 }); //mainScene
 
 phina.define('TitleScene', {
-  superClass: 'CanvasScene',
-  
-  init: function() {
-    this.superInit();
-    
-    var label = Label('MyMenuScene').addChildTo(this);
-    label.x = this.gridX.center();
-    label.y = this.gridY.center();
-  },
-  onclick:function(){
-    //次のシーンへ移動
+  superClass: 'DisplayScene',
+  init: function init(options) {
+    this.superInit(options);
+
+    SCREEN_WIDTH = this.gridX.width;
+    SCREEN_HEIGHT = this.gridY.width;
+
+    var self = this;
+
+    /*
+    var labelWhich = Label({
+      text: "Which？",
+      x: this.gridX.center(),
+      y: this.gridY.center(),
+      fontSize: 24,
+      fill: '#000000',
+    }).addChildTo(this);
+    labelWhich.x = this.gridX.center();
+    labelWhich.y = this.gridY.center();
+
+    var soundOn = Sprite('soundOn').addChildTo(this);
+    soundOn.x = this.gridX.center()-108;
+    soundOn.y = this.gridY.center();
+    soundOn.setScale(2.0,2.0);
+    soundOn.setInteractive(true);
+    soundOn.onpointstart = function(e) {
+      labelWhich.text = 'OK！';
+      soundOff.tweener.to({ alpha: 0 },1000,"swing");
+      soundOn.tweener
+      .wait(1000)
+      .to({ alpha: 0 },1000,"swing")
+      .call(function(){
+        self.exit();
+      });
+      labelWhich.tweener
+      .wait(1000)
+      .to({ alpha: 0 },1000,"swing");
+      SOUND_ON = true;
+    };
+
+    var soundOff = Sprite('soundOff').addChildTo(this);
+    soundOff.x = this.gridX.center()+108;
+    soundOff.y = this.gridY.center();
+    soundOff.setScale(2.0,2.0);
+    soundOff.setInteractive(true);
+    soundOff.onpointstart = function(e) {
+      labelWhich.text = 'OK！';
+      soundOn.tweener.to({ alpha: 0 },1000,"swing");
+      soundOff.tweener
+      .wait(1000)
+      .to({ alpha: 0 },1000,"swing")
+      .call(function(){
+        self.exit();
+      });
+      labelWhich.tweener
+      .wait(1000)
+      .to({ alpha: 0 },1000,"swing");
+      SOUND_ON = false;
+    };
+    */
+  },// init
+
+  update: function(){
     this.exit();
-  }
+  },
 });
 
 // シーン管理用のクラス
@@ -443,25 +543,7 @@ phina.main(function() {
   });
   //app.enableStats();
   // マネージャークラスでシーンを管理するよ。
-  app.replaceScene(MyManagerScene());
-
-   var winW = window.innerWidth;
-  var winH = window.innerHeight;
-  var scene = app.currentScene;
-    scene.width = winW;
-    scene.height = winH;
-    scene.canvas.width = winW;
-    scene.canvas.height = winH;
-    scene.gridX.width = winW;
-    scene.gridY.width = winH;
-    app.width = winW;
-    app.height = winH;
-    app.canvas.width = winW;
-    app.canvas.height = winH;
-    app.canvas.canvas.width = winW;
-    app.canvas.canvas.height = winH;
-    SCREEN_WIDTH = winW;
-    SCREEN_HEIGHT = winH;
+  //app.replaceScene(MyManagerScene());
 
   app.run();
   

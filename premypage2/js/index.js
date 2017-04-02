@@ -1,22 +1,16 @@
 var GLOBAL = {};
 
-// about~~系全部まとめられそうじゃん。
-GLOBAL.aboutModal = function() {
-  var aboutTag = document.getElementsByTagName('modal-about');
+GLOBAL.openModal = function(targetModal) {
+  $('.overlay').fadeToggle('slow', 'linear');
+  var aboutTag = document.getElementsByTagName(targetModal);
   $(aboutTag).toggleClass('active-modal');
-  $(aboutTag).fadeToggle("slow", "linear");
+  $(aboutTag).fadeToggle('slow', 'linear');
+  $('atom-icon-close').css('pointer-events', 'none');
+  setTimeout(function(){
+    $('atom-icon-close').css('pointer-events', 'auto');
+  }, 4600);
 }
+// aboutReset()とかはphinaで指定してるよ。
 
-GLOBAL.artModal = function() {
-  var aboutTag = document.getElementsByTagName('modal-art');
-  $(aboutTag).toggleClass('active-modal');
-  $(aboutTag).fadeToggle("slow", "linear");
-}
-
-GLOBAL.brandingModal = function() {
-  console.log(1);
-}
-
-GLOBAL.uiuxModal = function() {
-  console.log(1);
-}
+GLOBAL.underLoading = false
+GLOBAL.choosedSound = false;

@@ -1,0 +1,87 @@
+modal-branding.modal
+  atom-icon-close
+  div.content
+    atom-modal-h2(h2_str = "{'Branding'}")
+    div.wrap-explain
+      p ブランドを考えるのはとても面白いですよね。僕は大好きです。ブランディングというと「前よりもかっこよくする」というイメージが強いかもしれませんが、単純にかっこいいデザインを提供することではないはずです。
+      p とにかくトレンディでカッコよくするのではなく、常に「それらしさ」を考えぬく必要があるとおもっています。それはもしかしたら、すこし地味だったり弱そうだったり、かっこいいとはいえないものかもしれません。
+      p でも、一目見て思いや顔が見えるようなアウトプットをすることが大事だと思い、制作に取り組んでいます。そのアウトプットをいくつか紹介します。まだリリース前で公開できないものもあるので最近のものは少ないですが見てやってください。
+    item-work-card(content = '{cardContents.getitLogo}')
+    item-work-card(content = '{cardContents.getitBusinesscard}')
+    item-work-card(content = '{cardContents.renatireLogo1}')
+    item-work-card(content = '{cardContents.renatireLogo2}')
+    item-work-card(content = '{cardContents.misskeioLogo}')
+    item-work-card(content = '{cardContents.bookhubLogo}')
+
+  style(scoped, type='less').
+    :scope {
+      display: none;
+      width: 95%;
+      height: 95%;
+      top: 2.5%;
+      max-width: 800px;
+      background-color: rgba(250,250,250,0.8);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      .content {
+        margin: 0 auto;
+        max-width: 700px;
+        width: 95%;
+        .wrap-explain {
+          display: block;
+          padding-bottom: 36px;
+          border-bottom: solid 0.1px #4A4A4A;
+        }
+      }
+    }
+  script.
+    this.cardContents = {
+      getitLogo: {
+        img_src: ['./img/works/branding/getitlogo1.png','./img/works/branding/getitlogo2.png'],
+        link_href: '',
+        h2_str: '株式会社GetIt',
+        p_str: '株式会社GetItはプログラミング教育を実践的に行う企業です。「Get it!」というフレーズには「わかった！」という意味があり、GetItはこの「わかった！」という気持ちを何よりも大事にしています。それを表現するため「わかった！」を象徴していて、なおかつクリエイティブのシンボルである電球をタイプにあしらったロゴを制作しました。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+      getitBusinesscard: {
+        img_src: ['./img/works/branding/businesscard1.jpg','./img/works/branding/businesscard2.jpg'],
+        link_href: '',
+        h2_str: 'GetIt名刺',
+        p_str: '前述した株式会社GetItの名刺制作です。配色によってポップなニュアンスをだしながら、マテリアルデザインを模したレイアウトに仕上げ、先端性を感じさせられるようなデザインにしました。また、この名刺はそれぞれの役職のクリエイティブ領域に応じて、アイコンのデザインを変えています。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+      renatireLogo1: {
+        img_src: ['./img/works/branding/renatire1.jpg'],
+        link_href: '',
+        h2_str: 'Renatire',
+        p_str: 'Renatireは弾丸をアクセサリーに変え、平和意識を世界に発信するブランドです。Renatireは「生まれ変わる」という意味で「命を奪うために人の手でつくりかえられたものを、だれかの側にいられるような存在に生まれ変わらせる。」という思いがありました。このロゴは鉛玉にRunatireの頭文字を刻印することで、これから弾丸が生まれ変わる様子を表現しています。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+      renatireLogo2: {
+        img_src: ['./img/works/branding/renatire2.jpg'],
+        link_href: '',
+        h2_str: 'Renatire',
+        p_str: 'このロゴは前述したRenatireの最終案の候補でした。ロゴに込めた意味合いは同じなのですがこちらの方が弾丸のシンボルが強調されますね。ただ「このロゴちんこみたい」といわれて撃沈しました。そんなこといわれたらそれにしかみえないじゃないですか。そんな風にみえる人はそんな多くなかったんですがまあしょうがないですね〜。ネタとしてはおもしろいので載せました。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+      misskeioLogo: {
+        img_src: ['./img/works/branding/misskeioLogo.png'],
+        link_href: '',
+        h2_str: 'Misskeio2016',
+        p_str: '例年使われていたロゴがあったのですが、hp制作をするにあたってwebのデザインの全体のニュアンスにロゴを合わせるためリデザインしました。例年は「強い女性像」といった部分が強調されていましたが、今年は「初々しさ」のようなある意味での弱さも見せていきたいとのことでしたので、やわらかい配色にし、ロゴタイプもやや古風な王道感からモダンなニュアンスによせました。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+      bookhubLogo: {
+        img_src: ['./img/works/branding/bookhubLogo.png'],
+        link_href: '',
+        h2_str: 'BookHub',
+        p_str: '昔つくった相互選書サービスBookHubのロゴです。ロゴタイプに装飾をするパターンでデザインしましたが、今見ると反省点が多いですね。矢印と本をあしらった「U」を合わせて選書した本を届ける様子をあらわしていました。デザインを勉強しはじめてすぐに全力でつくった覚えがあります。これは懐かしいです。',
+        used_skills: 'Illustrator / Photoshop',
+      },
+    };
+
+
+
+
+
+

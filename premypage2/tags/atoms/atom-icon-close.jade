@@ -18,16 +18,17 @@ atom-icon-close(onclick='{modalClose}')
     }
 
   script.
-    console.log(opts.test);
+    
     this.modalClose = function(){
+      $('.overlay').fadeToggle("slow", "linear");
       var modals = document.getElementsByClassName('modal');
       for(var i=0; i<modals.length; i++){
         var modal = $(modals[i]);
         if(modal.hasClass('active-modal')){
-
           modal.toggleClass('active-modal');
           modal.fadeToggle("slow", "linear");
           var tagName = modal.prop('tagName');
+          console.log(tagName);
           switch(tagName){
             case "MODAL-ABOUT":
               GLOBAL.aboutReset();
@@ -35,8 +36,13 @@ atom-icon-close(onclick='{modalClose}')
             case "MODAL-ART":
               GLOBAL.artReset();
             break;
+            case "MODAL-BRANDING":
+              GLOBAL.brandingReset();
+            break;
+            case "MODAL-UIUX":
+              GLOBAL.uiuxReset();
+            break;
           }
-          
           // ここでcanvasにフォーカスさせないとあかんな。
         }
       }
