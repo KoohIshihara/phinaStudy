@@ -12,5 +12,17 @@ GLOBAL.openModal = function(targetModal) {
 }
 // aboutReset()とかはphinaで指定してるよ。
 
-GLOBAL.underLoading = false
+GLOBAL.compLoading = false
 GLOBAL.choosedSound = false;
+
+GLOBAL.closeLoading = function() {
+  var overlay = $('overlay-loading');
+  overlay.fadeToggle();
+  GLOBAL.compLoading = true;
+}
+
+GLOBAL.closeSound = function() {
+  var overlay = $('overlay-choose');
+  overlay.fadeToggle();
+  GLOBAL.choosedSound = true;
+}

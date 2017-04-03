@@ -55,9 +55,31 @@ window.onload = function() {
       }, 1000);
     }
     */
+    var letSound = document.getElementById('letSound');
+    letSound.onclick = function() {
+      $('.which').text('OK!');
+      $('.sound-off').animate({opacity: 0.0}, 1000);
+      $('overlay-choose').delay(1000).fadeToggle('slow', 'linear');
+      setTimeout(function(){
+        playSound(buffer);
+      }, 850);
+      
+      setTimeout(function(){
+        GLOBAL.choosedSound = true;
+      }, 2000);
+      /*
+      setTimeout(function(){
+        playSound(buffer);
+      }, 4600);
+      */
+    }
+
     GLOBAL.playBgm = function(){
       // サウンドを再生
       playSound(buffer);
     }
   });
 };
+
+
+

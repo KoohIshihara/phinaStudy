@@ -25,13 +25,22 @@
   <body>
 
     <app></app>
-    <button id='btn'>Play</button>
-    <script src="http://cdn.rawgit.com/phi-jp/phina.js/v0.2.0/build/phina.js"></script>
-    <script src="./canvas.js"></script>
+
+    <div id='soundtoggleOverlay'></div>
+    
     <canvas id='particlesCanvas'></canvas>
+    <canvas id='loadingCanvas'></canvas>
+
+    <script src="http://cdn.rawgit.com/phi-jp/phina.js/v0.2.0/build/phina.js"></script>
+    <script src="./js/mainCanvas.js"></script>
+    <script src="./js/loadingCanvas.js"></script>
+    <script src="./js/canvas.js"></script>
 
   </body>
 </html>
+
+<script src="./tags/overlays/overlay-loading.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/overlays/overlay-choose.jade" type="riot/tag" template='jade'></script>
 
 <script src="./tags/app.jade" type="riot/tag" template='jade'></script>
 <script src="./tags/modals/modal-about.jade" type="riot/tag" template='jade'></script>

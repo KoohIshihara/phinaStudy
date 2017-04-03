@@ -2,7 +2,7 @@ phina.globalize();
 
 var SCREEN_WIDTH;
 var SCREEN_HEIGHT;
-var TRIANGLE_POS ={top: 0, left: 0, right: 0};
+var TRIANGLE_POS = {top: 0, left: 0, right: 0};
 var SOUND_ON;
 
 var ASEETS = {
@@ -141,9 +141,11 @@ phina.define('MainScene', {
   superClass: 'DisplayScene',
   init: function init(options) {
     this.superInit(options);
+
+    console.log('main');
     
     // 三角形の頂点を取得。---------------------------
-    var center = {x: SCREEN_WIDTH/2, y: SCREEN_HEIGHT/2};
+    var center = {x: SCREEN_WIDTH/2, y: SCREEN_HEIGHT/1.9};
     var trianglePos; // 三角形の頂点の座標
     var triangleRadius = SCREEN_HEIGHT >= SCREEN_WIDTH ? SCREEN_WIDTH/2.5 : SCREEN_HEIGHT/2.5;
     TRIANGLE_POS.top = {x: center.x + Math.cos(-Math.PI/2)*triangleRadius, y: center.y + Math.sin(-Math.PI/2)*triangleRadius};
@@ -320,7 +322,7 @@ phina.define('MainScene', {
       text: "Art",
       x: TRIANGLE_POS.top.x,
       y: TRIANGLE_POS.top.y,
-      fontSize: 24,
+      fontSize: 20,
       fill: '#000000',
       /*fontFamily: 'futura',*/
     }).addChildTo(this);
@@ -342,7 +344,7 @@ phina.define('MainScene', {
       text: "Branding",
       x: TRIANGLE_POS.left.x,
       y: TRIANGLE_POS.left.y,
-      fontSize: 24,
+      fontSize: 20,
       fill: '#000000',
       /*fontFamily: 'futura',*/
     }).addChildTo(this);
@@ -364,7 +366,7 @@ phina.define('MainScene', {
       text: "UI・UX",
       x: TRIANGLE_POS.right.x,
       y: TRIANGLE_POS.right.y,
-      fontSize: 24,
+      fontSize: 20,
       fill: '#000000',
       /*fontFamily: 'futura',*/
     }).addChildTo(this);
@@ -447,126 +449,12 @@ phina.define('TitleScene', {
     SCREEN_WIDTH = this.gridX.width;
     SCREEN_HEIGHT = this.gridY.width;
 
-    var self = this;
+    console.log('title');
+    GLOBAL.closeLoading();
 
-    /*
-    var labelWhich = Label({
-      text: "Which？",
-      x: this.gridX.center(),
-      y: this.gridY.center(),
-      fontSize: 24,
-      fill: '#000000',
-    }).addChildTo(this);
-    labelWhich.x = this.gridX.center();
-    labelWhich.y = this.gridY.center();
-
-    var soundOn = Sprite('soundOn').addChildTo(this);
-    soundOn.x = this.gridX.center()-108;
-    soundOn.y = this.gridY.center();
-    soundOn.setScale(2.0,2.0);
-    soundOn.setInteractive(true);
-    soundOn.onpointstart = function(e) {
-      labelWhich.text = 'OK！';
-      soundOff.tweener.to({ alpha: 0 },1000,"swing");
-      soundOn.tweener
-      .wait(1000)
-      .to({ alpha: 0 },1000,"swing")
-      .call(function(){
-        self.exit();
-      });
-      labelWhich.tweener
-      .wait(1000)
-      .to({ alpha: 0 },1000,"swing");
-      SOUND_ON = true;
-    };
-
-    var soundOff = Sprite('soundOff').addChildTo(this);
-    soundOff.x = this.gridX.center()+108;
-    soundOff.y = this.gridY.center();
-    soundOff.setScale(2.0,2.0);
-    soundOff.setInteractive(true);
-    soundOff.onpointstart = function(e) {
-      labelWhich.text = 'OK！';
-      soundOn.tweener.to({ alpha: 0 },1000,"swing");
-      soundOff.tweener
-      .wait(1000)
-      .to({ alpha: 0 },1000,"swing")
-      .call(function(){
-        self.exit();
-      });
-      labelWhich.tweener
-      .wait(1000)
-      .to({ alpha: 0 },1000,"swing");
-      SOUND_ON = false;
-    };
-    */
   },// init
 
   update: function(){
-    this.exit();
+    if(GLOBAL.compLoading && GLOBAL.choosedSound) this.exit();
   },
 });
-
-// シーン管理用のクラス
-phina.define('MyManagerScene' , {
-  superClass: 'ManagerScene' ,
-  init: function() {
-    this.superInit({
-      scenes: [
-        // タイトル
-        {
-          label: 'title',
-          className: 'TitleScene',
-          nextLabel: 'main' 
-        },
-        // メニュー
-        {
-          label: "main",
-          className: "MainScene",
-          nextLabel: "title" 
-        },
-      ]
-    });
-  }
-});
-
-phina.main(function() {
-  var winW = window.innerWidth;
-  var winH = window.innerHeight;
-  var app = GameApp({
-    startLabel: 'title',
-    width: winW,
-    height: winH,
-    fit: false,
-    query: '#particlesCanvas',
-    assets: ASEETS,
-  });
-  //app.enableStats();
-  // マネージャークラスでシーンを管理するよ。
-  //app.replaceScene(MyManagerScene());
-
-  app.run();
-  
-  window.onresize = function() {
-    /*
-    var winW = window.innerWidth;
-    var winH = window.innerHeight;
-    var scene = app.currentScene;
-    scene.width = winW;
-    scene.height = winH;
-    scene.canvas.width = winW;
-    scene.canvas.height = winH;
-    scene.gridX.width = winW;
-    scene.gridY.width = winH;
-    app.width = winW;
-    app.height = winH;
-    app.canvas.width = winW;
-    app.canvas.height = winH;
-    app.canvas.canvas.width = winW;
-    app.canvas.canvas.height = winH;
-    SCREEN_WIDTH = winW;
-    SCREEN_HEIGHT = winH;
-    */
-  }
-});
-
