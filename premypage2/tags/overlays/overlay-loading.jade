@@ -1,8 +1,8 @@
 overlay-loading
   div.wrap.f.fh
-    canvas#loadingCanvas
-    //div.loading
-      span loading
+    div.loading
+      atom-loading
+    //canvas#loadingCanvas
 
   style(scoped, type='less').
     :scope {
@@ -13,13 +13,16 @@ overlay-loading
       height: 100%;
       top: 0;
       left: 0;
-      background-color: #FF0;
+      background-color: #FFF;
       .wrap {
         position: relative;
         width: 100%;
         height: 100%;
         .loading {
+          position: relative;
           display: block;
+          width: 260px;
+          height: 260px;
         }
       }
     }

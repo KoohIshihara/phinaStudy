@@ -1,3 +1,5 @@
+/*
+
 phina.define('LoadingCircle', {
   superClass: 'CircleShape',
   init: function init(options) {
@@ -44,3 +46,5 @@ phina.define('nowLoadScene', {
 
   },
 });
+
+*/

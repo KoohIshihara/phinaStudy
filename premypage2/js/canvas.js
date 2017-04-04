@@ -24,7 +24,7 @@ phina.main(function() {
   //app.enableStats();
   app.run();
 
-
+  /*
   var app2 = GameApp({
     startLabel: 'nowload',
     width: winW,
@@ -39,6 +39,7 @@ phina.main(function() {
     ],
   });
   app2.run();
+  */
 
   window.onresize = function() {
     /*
