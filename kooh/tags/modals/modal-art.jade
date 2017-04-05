@@ -1,0 +1,87 @@
+modal-art.modal
+  atom-icon-close
+  div.content
+    atom-modal-h2(h2_str = "{'Art'}")
+    div.wrap-explain
+      p 趣味と大学の研究でアート作品をつくっています。ものづくりにおいて「おきにいきたくない」のはこの活動ですね。さて、私は自然が好きです。特に木が好きなんです。なので作品は自然にまつわるものが多いと思います。
+      p ご紹介する作品については説明書きもありますが、そこで多くを説明するのはあまりかっこよくないと思ってるので、そこまで深くは読まないでも大丈夫ですよ。補足程度に思っててください。できれば説明なんてしなくても伝わるものをつくれればいいんですけどね。
+      p まあ、とりあえず見てみてください。まだアートをはじめてから１年ほどなので歴は浅いのですが、色々と迷走しながらもアウトプットしています。実験的なものや拙いものも多いですが、何か感想などいただければ幸いです。
+    item-work-card(content = '{cardContents.ripple}')
+    item-work-card(content = '{cardContents.genesys}')
+    item-work-card(content = '{cardContents.fractalVision}')
+    item-work-card(content = '{cardContents.groTree}')
+    item-work-card(content = '{cardContents.criford}')
+    item-work-card(content = '{cardContents.snowman}')
+
+  style(scoped, type='less').
+    :scope {
+      display: none;
+      width: 95%;
+      height: 95%;
+      top: 2.5%;
+      max-width: 800px;
+      background-color: rgba(250,250,250,0.8);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      .content {
+        margin: 0 auto;
+        max-width: 700px;
+        width: 95%;
+        .wrap-explain {
+          display: block;
+          padding-bottom: 36px;
+          border-bottom: solid 0.1px #4A4A4A;
+        }
+      }
+    }
+  script.
+    this.cardContents = {
+      ripple: {
+        img_src: ['./img/works/art/ripple1.png','./img/works/art/ripple2.png'],
+        link_href: 'https://vimeo.com/192083910',
+        h2_str: 'Ripple',
+        p_str: '個人製作です。波紋のホログラフを用いて光の雨を生み出しました。仮装の雨を立体に投影し、その投影に葉が干渉を受けている様子を表した作品です。仮装のものが現実に干渉する気持ち悪さを表現しようとしたのが発端です。まだまだ実験的なものですが、今後何かに応用していきたいです。（でっかい部屋でこれをやってバグズライフみたいな感覚になれるインスタレーションつくってみたいなーとか最近思ってます。）',
+        used_skills: 'Openframeworks / C++',
+      },
+      genesys: {
+        img_src: ['./img/works/art/genesys1.png','./img/works/art/genesys2.png'],
+        link_href: 'https://vimeo.com/183827522',
+        h2_str: 'Genesys',
+        p_str: '個人製作です。これは前につくった「fractal vision」を再考したものです。由来はgenerative systemからとりました。単純なコマンドシステムによって複雑な造形が生み出されているということを表現したかったのですが、前作のfractal visionはコマンド感が足りなかったので作り直しました。文字列が集合し、樹木になっていく様子が加わっています。',
+        used_skills: 'Openframeworks / C++ / L-system',
+      },
+      fractalVision: {
+       img_src: ['./img/works/art/fractalVision.png'],
+        link_href: 'https://vimeo.com/177187099',
+        h2_str: 'Fractal Vision',
+        p_str: '個人製作です。脳に異常が起きると稀に物体のフラクタル構造が見えるようになるということを知りました。そこで、その時に見えるものってどんな感じなのかなーと思い、それを恣意的に表現し、作品にしました。L-Systemと呼ばれる樹木生成のアルゴリズムを用い、独自で実装しています。',
+        used_skills: 'Openframeworks / C++ / L-system',
+      },
+      groTree: {
+       img_src: ['./img/works/art/gro.png'],
+        link_href: 'https://vimeo.com/174191425',
+        h2_str: 'Grotesque　Growth Glory',
+        p_str: 'Fractal Visionの製作中に迷走し、副次的にできたのがこれです。ただひたすらに気持ち悪い動きをして成長する樹木です。肺を連想させるようなグラフィックになってます。別に深いメッセージ性とかないです。「気持ち悪い」それだけです。',
+        used_skills: 'Openframeworks / C++ / L-system',
+      },
+      criford: {
+       img_src: ['./img/works/art/criford1.png','./img/works/art/criford2.png'],
+        link_href: 'http://kooh.sakura.ne.jp/criford/helloPhine.html',
+        h2_str: 'クリフォードアトラクタ',
+        p_str: 'もとはOpenframeworksで動いてたものなのですが、web上で実装してみました。パーティクルの動きがおもしろいですね。一度webに移植できたのでこれをベースにすれば他のパーティクルアニメーションももってこれるようになりました。今後何かに使いたいです。',
+        used_skills: 'Phina.js / Javascript / Strange Attractor',
+      },
+      snowman: {
+       img_src: ['./img/works/art/snowman.png'],
+        link_href: 'http://kooh.sakura.ne.jp/Anniversary/',
+        h2_str: '雪だるまつくろう',
+        p_str: '昔つくったゲームですね。ただの連打ゲーのクソゲーです。とりあえず、枠がなかったのでアートに入れておきました。たしかクリスマスの記念かなんかで何かつくろうとしてできたのがこれだったとおもいます。クリスマスだというのに一人でひたすらつくっていた気がします。まあ私にとってはものづくりが恋人なので、そういう意味ではリア充してましたよ。',
+        used_skills: 'Processing.js / Javascript / Illustrator',
+      },
+    };
+
+
+
+
+
+

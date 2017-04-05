@@ -1,0 +1,31 @@
+item-work-card
+  div.wrap-img(each='{ key in opts.content.img_src }')
+    img(src='{ key }')
+  a(href='{opts.content.link_href}' target='_brank') {opts.content.link_href}
+  h2 {opts.content.h2_str}
+  p {opts.content.p_str}
+  p {opts.content.used_skills}
+  p {opts.content.credit}
+
+  style(scoped, type='less').
+    :scope {
+      display: block;
+      padding: 36px 0px 48px 0px;
+      border-bottom: solid 0.1px #4A4A4A;
+      .wrap-img{
+        margin-top: 12px;
+        overflow: hidden;
+        width: 100%;
+        /*max-height: 360px;*/
+        img{
+          width: 100%;
+        }
+      }
+      a {
+        display: block;
+        margin-top: 16px;
+        color: #999;
+        font-size: 14px;
+      }
+    }
+  script.

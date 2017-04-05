@@ -1,0 +1,42 @@
+atom-loading
+  div.wrap-animation
+  div.wrap-text.f.fh
+    span Now Loading
+
+  style(scoped, type='less').
+    :scope {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      .wrap-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 4px solid #4A4A4A;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        animation: rotationAnim 1.0s linear infinite;
+      }
+      .wrap-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      @keyframes rotationAnim {
+        from {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+  script.
+   

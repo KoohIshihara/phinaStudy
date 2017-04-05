@@ -1,0 +1,77 @@
+<!doctype html>
+ 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title>Ko Ishihara</title>
+    
+    <meta name="keywords" content="石原航,Kooh,Designer,Front Engineer,web">
+    <meta name="description" content="Portfolio of Ko Ishihara : Designer / Engineer" />
+    <meta name="author" content="Ko Ishihara">
+
+    <meta property="og:title" content="Ko Isihara">
+    <meta property="og:description" content="portfolio of Ko Ishihara : Designer / Engineer">
+    <meta property="og:site_name" content="Ko Isihara"">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./img/meta/Hi.png">
+    <meta property="og:url" content="http://kooh.me/">
+    <meta property="og:locale" content="ja_JP">
+
+    <link rel="shortcut icon" href="./img/meta/favicon.png" type="image/png">
+
+    <link rel="stylesheet/less" type="text/css" href="./high.css">
+    <link rel="stylesheet/less" type="text/css" href="./less/index.less">
+    
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/jade.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/less.js/2.2.0/less.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.13/riot+compiler.js'></script>
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js'></script>
+    
+    <script type="text/javascript" src='./js/index.js'></script>
+    <script type="text/javascript" src='./js/sound.js'></script>
+
+  </head>
+  <body>
+
+    <app></app>
+
+    <div id='soundtoggleOverlay'></div>
+    
+    <canvas id='particlesCanvas'></canvas>
+    <canvas id='loadingCanvas'></canvas>
+
+    <script src="http://cdn.rawgit.com/phi-jp/phina.js/v0.2.0/build/phina.js"></script>
+    <script src="./js/mainCanvas.js"></script>
+    <script src="./js/canvasDate.js"></script>
+    <script src="./js/canvas.js"></script>
+
+  </body>
+</html>
+
+<script src="./tags/overlays/overlay-loading.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/overlays/overlay-choose.jade" type="riot/tag" template='jade'></script>
+
+<script src="./tags/app.jade" type="riot/tag" template='jade'></script>
+
+<script src="./tags/modals/modal-about.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/modals/modal-art.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/modals/modal-branding.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/modals/modal-uiux.jade" type="riot/tag" template='jade'></script>
+
+<script src="./tags/items/item-work-card.jade" type="riot/tag" template='jade'></script>
+
+<script src="./tags/atoms/atom-icon-close.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/atoms/atom-modal-h2.jade" type="riot/tag" template='jade'></script>
+<script src="./tags/atoms/atom-loading.jade" type="riot/tag" template='jade'></script>
+
+
+<script>
+  localStorage.clear();
+  // マウント 
+  var tags = riot.mount('*');
+
+</script>

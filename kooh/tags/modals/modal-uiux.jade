@@ -1,0 +1,97 @@
+modal-uiux.modal
+  atom-icon-close
+  div.content
+    atom-modal-h2(h2_str = "{'UI・UX'}")
+    div.wrap-explain
+      p 僕の強みはデザインとエンジニアリングの両刀持ちであるところです。自分でつくりたいものを一人でつくろうと奮闘してきたのですが、気づけばどちらも勉強していました。僕にとってこの２つにはあまり境界はありません。
+      p UI・UXの設計をする際はこの強みをいかしきれるよう意識しています。デザインの立場に立ったならばエンジニアリングを考慮したデザインを行いますし、エンジニアリングの立場に立てばデザイナーの意図を汲み取ってコーディングを行います。
+      p 特にアニメーションやエフェクトのような、２つの中間にあるような部分は好きですよ。なんというかテクノロジーを駆使してブランドを表現できるような人になりたいなって最近はおもってるんですよね。
+    item-work-card(content = '{cardContents.IamKooh2017}')
+    item-work-card(content = '{cardContents.cromen}')
+    item-work-card(content = '{cardContents.missKeio2016}')
+    item-work-card(content = '{cardContents.getit}')
+    item-work-card(content = '{cardContents.timofee}')
+    item-work-card(content = '{cardContents.IamKooh2016}')
+    item-work-card(content = '{cardContents.IamKooh2015}')
+    
+
+  style(scoped, type='less').
+    :scope {
+      display: none;
+      width: 95%;
+      height: 95%;
+      top: 2.5%;
+      max-width: 800px;
+      background-color: rgba(250,250,250,0.8);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      .content {
+        margin: 0 auto;
+        max-width: 700px;
+        width: 95%;
+        .wrap-explain {
+          display: block;
+          padding-bottom: 36px;
+          border-bottom: solid 0.1px #4A4A4A;
+        }
+      }
+    }
+  script.
+    this.cardContents = {
+      IamKooh2017: {
+        img_src: ['./img/works/uiux/IamKooh2017-1.png','./img/works/uiux/IamKooh2017-2.png'],
+        link_href: 'kooh.sakura.ne.jp',
+        h2_str: "I'm Kooh",
+        p_str: '毎年度、自分の中での最高の技術を用いてポートフォリオをリニューアルしています。今年はこれです。浮遊する球一つ一つが自分の制作経験を表していて、作品のスケール、分野などをヴィジュアライズしたポートフォリオです。やはりスマホでも動くアニメーションとなると難しいですね。今回はiOSの諸々のタッチ制約に苦戦させられましたが、なんとかつくることができました。これからもっと経験を積んで球を増やしていきますよ。',
+        used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Riot.js / Phina.js',
+        credit: 'music cylinder one chris zabriskie',
+      },
+      cromen: {
+        img_src: ['./img/works/uiux/cromen1.png','./img/works/uiux/cromen2.png'],
+        link_href: 'crossmentorship.com',
+        h2_str: "Crossmentorship",
+        p_str: 'Crossmentorshipの公式ホームページのデザイン・コーディングをさせていただきました。「多彩な人々がつながることで、社会を彩る化学反応を起こしたい」という思いを表現するために思索を重ねて制作しました。テーマは「ポップな化学実験」です。なんだかこのページは色々な人からとても気に入ってもらえて個人的には嬉しかった作品です。',
+        used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Processing.js',
+      },     
+      missKeio2016: {
+        img_src: ['./img/works/uiux/misskeio1.png','./img/works/uiux/misskeio2.png'],
+        link_href: 'http://kooh.sakura.ne.jp/missKeioBagFormat/',
+        h2_str: "Miss Keio 2016",
+        p_str: 'ミス慶應2016のwebページのデザインとコーディングをしました。デザインを考えるために僕も撮影に同行させてもらったのですが、ほんとにそこで撮ってくれた写真の素材がよかったです。制作のみなさんには感謝です。UIの設計については全員のプロフィールを見てもらいたいとのことでしたので、あえてトップページでは顔が見えないようになっています。それにしてもこれつくるの楽しかったな。今ならもっといいのつくれそう。',
+        used_skills: 'HTML5 / CSS / Javascript / Jquery',
+      },
+      getit: {
+        img_src: ['./img/works/uiux/getit.png'],
+        link_href: 'getit.co.jp',
+        h2_str: "Get It",
+        p_str: '株式会社GetItのwebページです。はじめてRiot.jsというフレームワークを用いてコーディングを行いました。コンポーネント志向でUIを設計していくのはとても楽しかったです。ロゴについても制作を担当させていただきました。詳しくはBrandingの方を見てください。',
+        used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Riot.js',
+      },
+      timofee: {
+        img_src: ['./img/works/uiux/timofee1.png','./img/works/uiux/timofee2.png'],
+        link_href: 'http://timofee.org/',
+        h2_str: "Timofee",
+        p_str: '学部２年生の頃に制作したTimofeeのホームページです。Timofeeは東ティモールに日本の良さを伝える雑誌なんですけど、これ本当にいい雑誌なんですよ。クラウドファンディングも成功して無事にこの雑誌を贈り届けることができました。この雑誌も学生だけでつくったんです。なつかしい。webについては雑誌感を出すデザインにしました。またこういうのやりたいな。',
+        used_skills: 'HTML5 / CSS / Javascript / Jquery',
+      },
+      IamKooh2016: {
+        img_src: ['./img/works/uiux/IamKooh2016.png'],
+        link_href: 'http://kooh.sakura.ne.jp/myPageVer2.0/',
+        h2_str: "I'm Kooh",
+        p_str: '１つ前のポートフォリオページです。あんまり時間をかけた作品ではなかった気がします。「I will create 〜 thing.」の「〜」に飛び込んでいくようなイメージで作りました。背景に飛んでいる文字は全て「〜」に当てはまる形容詞で、これからどんなものをつくりるのかを宣言しています。',
+        used_skills: 'HTML5 / CSS / Javascript / Jquery / Processing.js',
+      },
+      IamKooh2015: {
+        img_src: ['./img/works/uiux/IamKooh2015.png'],
+        link_href: 'http://kooh.sakura.ne.jp/myPageVer1.0/',
+        h2_str: "I'm Kooh",
+        p_str: '前の前のポートフォリオページです。自分の成長を見るためにも昔のものを載せているのですが今見るとほんとにひどいですね。お恥ずかしいです。実は僕は昔政治に興味があって、ものづくりなんて全く関心がなかったんですよ。でも色々あって今ではものづくりバカになりました。制作をはじめて今では２年半となります。自分でいうのもなんですがこの時と比べたらほんと成長しました。これからもぐいぐい成長しますよ。なんてったってものづくりを愛してますからね。',
+        used_skills: 'HTML5 / CSS / Javascript / Jquery / Processing.js',
+      },
+    };
+
+
+
+
+
+
