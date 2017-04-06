@@ -3,12 +3,12 @@ modal-uiux.modal
   div.content
     atom-modal-h2(h2_str = "{'UI・UX'}")
     div.wrap-explain
-      p 僕の強みはデザインとエンジニアリングの両刀持ちであるところです。自分でつくりたいものを一人でつくろうと奮闘してきたのですが、気づけばどちらも勉強していました。僕にとってこの２つにはあまり境界はありません。
-      p UI・UXの設計をする際はこの強みをいかしきれるよう意識しています。デザインの立場に立ったならばエンジニアリングを考慮したデザインを行いますし、エンジニアリングの立場に立てばデザイナーの意図を汲み取ってコーディングを行います。
-      p 特にアニメーションやエフェクトのような、２つの中間にあるような部分は好きですよ。なんというかテクノロジーを駆使してブランドを表現できるような人になりたいなって最近はおもってるんですよね。
+      p 僕の強みはデザインとエンジニアリングの両刀持ちであるところです。自分でつくりたいものを一人でつくろうと奮闘してきたのですが、気づけばどちらも勉強していました。
+      p 僕にとってこの２つにはあまり境界はありません。だからこそ両者の役割を踏まえた上で制作に励みたいと思っています。
+      p 制作の中でも特にエフェクト演出のような、２つの中間にあるような部分は好きですよ。テクノロジーを駆使してブランドを表現できるような人になりたいんですよね。
     item-work-card(content = '{cardContents.IamKooh2017}')
-    item-work-card(content = '{cardContents.cromen}')
     item-work-card(content = '{cardContents.missKeio2016}')
+    item-work-card(content = '{cardContents.cromen}')
     item-work-card(content = '{cardContents.getit}')
     item-work-card(content = '{cardContents.timofee}')
     item-work-card(content = '{cardContents.IamKooh2016}')
@@ -39,20 +39,13 @@ modal-uiux.modal
   script.
     this.cardContents = {
       IamKooh2017: {
-        img_src: ['./img/works/uiux/IamKooh2017-1.png','./img/works/uiux/IamKooh2017-2.png'],
-        link_href: 'kooh.sakura.ne.jp',
+        img_src: ['./img/works/uiux/IamKooh2017-2.png','./img/works/uiux/IamKooh2017-1.png'],
+        link_href: 'http://kooh.me/',
         h2_str: "I'm Kooh",
         p_str: '毎年度、自分の中での最高の技術を用いてポートフォリオをリニューアルしています。今年はこれです。浮遊する球一つ一つが自分の制作経験を表していて、作品のスケール、分野などをヴィジュアライズしたポートフォリオです。やはりスマホでも動くアニメーションとなると難しいですね。今回はiOSの諸々のタッチ制約に苦戦させられましたが、なんとかつくることができました。これからもっと経験を積んで球を増やしていきますよ。',
         used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Riot.js / Phina.js',
         credit: 'music cylinder one chris zabriskie',
       },
-      cromen: {
-        img_src: ['./img/works/uiux/cromen1.png','./img/works/uiux/cromen2.png'],
-        link_href: 'crossmentorship.com',
-        h2_str: "Crossmentorship",
-        p_str: 'Crossmentorshipの公式ホームページのデザイン・コーディングをさせていただきました。「多彩な人々がつながることで、社会を彩る化学反応を起こしたい」という思いを表現するために思索を重ねて制作しました。テーマは「ポップな化学実験」です。なんだかこのページは色々な人からとても気に入ってもらえて個人的には嬉しかった作品です。',
-        used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Processing.js',
-      },     
       missKeio2016: {
         img_src: ['./img/works/uiux/misskeio1.png','./img/works/uiux/misskeio2.png'],
         link_href: 'http://kooh.sakura.ne.jp/missKeioBagFormat/',
@@ -60,9 +53,16 @@ modal-uiux.modal
         p_str: 'ミス慶應2016のwebページのデザインとコーディングをしました。デザインを考えるために僕も撮影に同行させてもらったのですが、ほんとにそこで撮ってくれた写真の素材がよかったです。制作のみなさんには感謝です。UIの設計については全員のプロフィールを見てもらいたいとのことでしたので、あえてトップページでは顔が見えないようになっています。それにしてもこれつくるの楽しかったな。今ならもっといいのつくれそう。',
         used_skills: 'HTML5 / CSS / Javascript / Jquery',
       },
+      cromen: {
+        img_src: ['./img/works/uiux/cromen1.png','./img/works/uiux/cromen2.png'],
+        link_href: 'http://crossmentorship.com/',
+        h2_str: "Crossmentorship",
+        p_str: 'Crossmentorshipの公式ホームページのデザイン・コーディングをさせていただきました。「多彩な人々がつながることで、社会を彩る化学反応を起こしたい」という思いを表現するために思索を重ねて制作しました。テーマは「ポップな化学実験」です。なんだかこのページは色々な人からとても気に入ってもらえて個人的には嬉しかった作品です。',
+        used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Processing.js',
+      },
       getit: {
         img_src: ['./img/works/uiux/getit.png'],
-        link_href: 'getit.co.jp',
+        link_href: 'http://getit.co.jp/',
         h2_str: "Get It",
         p_str: '株式会社GetItのwebページです。はじめてRiot.jsというフレームワークを用いてコーディングを行いました。コンポーネント志向でUIを設計していくのはとても楽しかったです。ロゴについても制作を担当させていただきました。詳しくはBrandingの方を見てください。',
         used_skills: 'HTML5 / Jade / CSS / Less / Javascript / Jquery / Riot.js',

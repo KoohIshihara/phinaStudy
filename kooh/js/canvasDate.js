@@ -65,7 +65,7 @@ var WORKS_PARAM = [
     size: 14,
   },
   {
-    name: 'Book Hub',
+    name: 'Winning',
     categori: 'Branding',
     size: 14,
   },

@@ -4,8 +4,8 @@ modal-branding.modal
     atom-modal-h2(h2_str = "{'Branding'}")
     div.wrap-explain
       p ブランドを考えるのはとても面白いですよね。僕は好きです。ブランディングというと「前よりもかっこよくする」というイメージが強いかもしれませんが、単純にかっこいいデザインを提供することではないはずです。
-      p とにかくトレンディでカッコよくするのではなく、常に「それらしさ」を考えぬく必要があるとおもっています。それはもしかしたら、すこし地味だったり弱そうだったり、かっこいいとはいえないものかもしれません。
-      p でも、一目見て思いや顔が見えるようなアウトプットをすることが大事だと思い、制作に取り組んでいます。そのアウトプットをいくつか紹介します。まだリリース前で公開できないものもあるので最近のものは少ないですが見てやってください。
+      p とにかくトレンディでカッコよくするのではなく、常に「それらしさ」を考えぬく必要があるとおもっています。
+      p それはもしかしたら、すこし地味だったり弱そうだったり、かっこいいとはいえないものかもしれません。でも、一目見て思いや顔が見えるようなアウトプットをすることが大事だと思い、制作に取り組んでいます。
     item-work-card(content = '{cardContents.getitLogo}')
     item-work-card(content = '{cardContents.getitBusinesscard}')
     item-work-card(content = '{cardContents.renatireLogo1}')
@@ -40,7 +40,7 @@ modal-branding.modal
   script.
     this.cardContents = {
       getitLogo: {
-        img_src: ['./img/works/branding/getitlogo1.png','./img/works/branding/getitlogo2.png'],
+        img_src: ['./img/works/branding/getitlogo2.png','./img/works/branding/getitlogo1.png'],
         link_href: '',
         h2_str: 'GetIt',
         p_str: '株式会社GetItはプログラミング教育を実践的に行う企業です。「Get it!」というフレーズには「わかった！」という意味があり、GetItはこの「わかった！」という気持ちを何よりも大事にしています。それを表現するため「わかった！」を象徴していて、なおかつクリエイティブのシンボルである電球をタイプにあしらったロゴを制作しました。',
@@ -49,7 +49,7 @@ modal-branding.modal
       getitBusinesscard: {
         img_src: ['./img/works/branding/businesscard1.jpg','./img/works/branding/businesscard2.jpg'],
         link_href: '',
-        h2_str: 'GetIt名刺',
+        h2_str: 'Businesscard',
         p_str: '前述した株式会社GetItの名刺制作です。配色によってポップなニュアンスをだしながら、マテリアルデザインを模したレイアウトに仕上げ、先端性を感じさせられるようなデザインにしました。また、この名刺はそれぞれの役職のクリエイティブ領域に応じて、アイコンのデザインを変えています。',
         used_skills: 'Illustrator / Photoshop',
       },
